@@ -23,11 +23,13 @@
       text-align: justify;
     }
     .vision-section img {
+      display: block;
+      margin: 1em auto;
       max-width: 100%;
-      margin: 1em 0;
       border-radius: 10px;
-      box-shadow: 0 0 10px #00ff9940;
+      box-shadow: 0 0 10px hsla(156, 100%, 50%, 0.251);
     }
+
   </style>
 </head>
 <body>
@@ -40,6 +42,7 @@
         <li><a href="chatbot.html">聊天機器人</a></li>
         <li><a href="vision.html">影像辨識</a></li>
         <li><a href="unity.html">Unity 製作說明</a></li>
+        <li><a href="reference.html">參考文獻</a></li>
       </ul>
     </nav>
   </header>
@@ -48,41 +51,59 @@
     <h1>影像辨識</h1>
   </section>
 
-  <section class="vision-section">
-    <h2>系統設計理念</h2>
+  <section class="vision-section" >
+    <h2>設計理念</h2>
     <p>
-      為提升遊戲的互動性與挑戰性，我們設計了影像辨識任務系統。
+      為提升遊戲的互動性與挑戰性，我們設計了影像辨識系統，
       玩家需於現實場景中拍攝圖片並上傳至遊戲，系統將自動辨識場景是否符合任務需求，推動劇情發展。
     </p>
     <img src="images/vision/3 (2).png" alt="影像辨識概念圖">
 
     <h2>資料收集與預處理</h2>
     <p>
-      資料蒐集自學校五大場景（如羅馬劇場、天地之間等），並加入不同時間（早、中、晚）及天氣條件，增強模型泛化能力。
-      圖片壓縮為 80x80 彩色圖像，訓練過程設置 50 個訓練週期，並定期保存最佳模型。
+      資料蒐集自學校五大場景（如羅馬劇場、天地之間等），加入了不同時間（早、中、晚）及天氣條件，增強模型泛化能力。
+      圖片壓縮為 80x80 彩色圖像，訓練過程設置 50 個訓練週期，並保存最佳模型。
     </p>
     <img src="images/vision/3 (3).png" alt="資料集與預處理圖示">
+    <h2>處理前和後的結果</h2>
     <img src="images/vision/3 (5).png" alt="資料集與預處理圖示">
     <img src="images/vision/3 (9).png" alt="資料集與預處理圖示">
 
     <h2>模型訓練與成果</h2>
     <p>
+      下圖為四種模型在訓練期間的 Loss 值變化比較：
+    </p>
+    <img src="images/vision/3 (7).png" alt="模型測試結果比較圖">
+    <p>
+      下圖為四種模型在訓練期間的 accuracy 值變化比較：
+    </p>
+    <img src="images/vision/下載.png" alt="模型測試結果比較圖">
+    <p>
       經過多輪測試，我們選擇 ResNet 模型作為最終模型，達成約 90% 的準確率。
       其他模型如 Inception、MobileNet 與 EfficientNet 分別達到約 0.7、0.42 及 0.66 的準確率。
       ResNet 模型在穩定性與準確率表現均優於其他模型。
     </p>
-    <img src="images/vision/3 (1).png" alt="模型測試結果比較圖">
     <img src="images/vision/3 (4).png" alt="模型測試結果比較圖">
-    <img src="images/vision/3 (7).png" alt="模型測試結果比較圖">
-    <img src="images/vision/3 (6).png" alt="模型測試結果比較圖">
-    <img src="images/vision/3 (8).png" alt="模型測試結果比較圖">
-
-    <h2>遊戲流程整合</h2>
     <p>
-      玩家透過遊戲中的檔案選取功能，上傳現實拍攝的場景圖片。
+      這是ResNet測試後的混淆矩陣，可以看到在第0、2個分類，有圖片分別3張和2張預測錯誤，而其餘的都預測正確；在這五種分類中，每十張只會出現一次錯誤的機率。
+    </p>
+    
+    <img src="images/vision/3 (6).png" alt="模型測試結果比較圖">
+    <p>
+      這是程式設計時有加入的功能且輸出為txt檔之結果流程圖，有照相機功能、使用的模型數量、圖片載入順序、模型預測結果。
+    </p>
+    <img src="images/vision/3 (8).png" alt="模型測試結果比較圖">
+    <p>
+      選用 ResNet -18 為這次的影像分類模型，並且要符合遊戲的內容，只設定輸出是否為天地之間的結果。
+    </p>
+    <img src="images/vision/3 (1).png" alt="模型測試結果比較圖">
+
+    <h2>連結unity</h2>
+    <p>
+      因為劇情和因素關係，最後改成玩家透過遊戲中的檔案選取功能，上傳現實拍攝的場景圖片；
       系統經辨識後，若結果符合任務條件，即可推動劇情發展，完成階段挑戰。
     </p>
-    <img src="images/vision/暫時.png" alt="遊戲中影像辨識流程圖">
+    <img src="images/vision/123456.jpg" alt="遊戲中影像辨識流程圖">
 
   </section>
 
