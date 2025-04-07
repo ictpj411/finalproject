@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>聊天機器人</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .chatbot-section {
+      max-width: 900px;
+      margin: 2em auto;
+      padding: 2em;
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #00ff9950;
+      line-height: 1.8;
+    }
+    .chatbot-section h2 {
+      color: #00ff99;
+      margin-bottom: 1em;
+    }
+    .chatbot-section h3 {
+      color: #00ff99;
+      margin-bottom: 1em;
+    }
+    .chatbot-section h4 {
+      color: #00ff99;
+      margin-bottom: 1em;
+    }
+    h5 {
+    font-size: 32px;        
+    color: #ffd451;        
+    font-weight: bold;    
+    margin-bottom: 15px;    
+    text-align: center;      
+  }
+    .chatbot-section p {
+      text-align: justify;
+    }
+    .chatbot-section img {
+      max-width: 100%;
+      margin: 1em 0;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #00ff9940;
+    }
+    .image-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* 圖片之間的間距 */
+    margin: 20px 0;
+  }
+    figure {
+    text-align: center;}
+    figure img {
+      width: 400px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);}
+    figcaption {
+      margin-top: 8px;
+      font-size: 16px;
+      color: #8ed8fd;}
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">目的與動機</a></li>
+        <li><a href="method.html">研究方法</a></li>
+        <li><a href="game.html">遊戲介紹</a></li>
+        <li><a href="chatbot.html">聊天機器人</a></li>
+        <li><a href="vision.html">影像辨識</a></li>
+        <li><a href="unity.html">Unity 製作說明</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>聊天機器人</h1>
+  </section>
+
+  <section class="chatbot-section">
+    <h2>聊天機器人設計理念</h2>
+    <p>
+      本專題中的聊天機器人以「修女」角色為互動對象，結合自然語言處理技術，打造沉浸式的對話體驗。
+      玩家可與修女進行問答，獲得遊戲提示或彩蛋內容，提升遊戲趣味性與互動感。
+    </p>
+    <img src="images/chatbot/暫時.png" alt="聊天機器人角色示意圖">
+
+    <h2>模型選擇與訓練</h2>
+    <p>
+      我們選用 Naive Bayes 模型作為聊天機器人核心架構，適用於中小型數據集且計算效率高。
+      對話數據經過分詞、去除停用詞與向量化處理後，以 90% 訓練集與 10% 測試集進行模型訓練。
+    </p>
+    <img src="images/chatbot/2 (1).png" alt="模型訓練流程圖">
+    <img src="images/chatbot/2 (4).png" alt="模型訓練流程圖">
+    
+
+    <h2>對話邏輯設計</h2>
+    <p>
+      為提升互動真實感，當系統無法理解玩家輸入時，會回應：「很抱歉，我不太了解你的意思。」避免錯誤回應影響遊戲體驗。
+      未來規劃導入 Transformer 等進階模型，進一步提升對話流暢性與理解力。
+    </p>
+    <img src="images/chatbot/2 (3).png" alt="對話邏輯流程圖">
+
+    <h2>聊天機器人效果展示</h2>
+    <p>
+      下圖為聊天機器人回應玩家輸入的展示範例，實現簡單且自然的問答互動。
+    </p>
+    <img src="images/chatbot/2 (2).png" alt="聊天效果展示圖">
+    <img src="images/chatbot/1 (8).jpg" alt="聊天效果展示圖">
+    <h5>進階打造聊天機器人</h5>
+    <p>
+      由於文本資料的不足不適合使用 NLP 架構如 Transformer等方式提高聊天機器人的訓練與回覆，為了使修女角色的語境理解與回應流暢度更貼近真實人類對話，因此我們進一步使用ollama中的Llama-3.1-TAIDE-LX-8B-Chat-GGUF:Q3_K_M模型進行微調套用。
+    </p>
+    <h3>Llama-3.1-TAIDE-LX-8B-Chat-GGUF 模型介紹</h3>
+    <p>這款模型是去Hugging Face找到llama 3.1 TAIDE系列模型，並取得授權使用基於 taide/Llama-3.1-TAIDE-LX-8B-Chat 使用 llama.cpp b4739 版量化過的模型。
+      它使用 Q3_K_M 量化技術（3-bit 量化），
+      有效降低運算資源消耗。適用於 本地 AI 助手、知識問答 以及 軟體開發輔助 等場景。
+      這款模型特別為本地環境設計，即使在容量有限的設備上，也能順利運行，使用者可以透過 ollama 或 llama.cpp 直接執行，無需高性能 GPU。
+    </p>
+    <h4>本地部署 Llama-3.1-TAIDE 模型並製作可執行檔</h4>
+    <p>
+      透過命令提示字元（cmd）使用 Ollama 工具下載了 Llama-3.1-TAIDE-LX-8B-Chat-GGUF:Q3_K_M 模型，作為本地語言生成系統的核心。
+      下載完成後，撰寫了一個 Python 檔案（.py），用以調用與調整該模型的參數設定，
+      包括對話邏輯、輸入輸出格式、模型回應風格等，進一步優化其與使用者的互動體驗。完成調整後，
+      利用 PyInstaller 將該 Python 腳本打包成 .exe 執行檔，使模型能在不需依賴 Python 環境的情況下獨立運行。
+    </p>
+ 
+ 
+    <img src="images/chatbot/程式碼1.png" alt="Python設定角色背景、風格" style="width: 800px;">
+    <figcaption style="text-align: center;">在Python設定角色背景、風格</figcaption>
+   
+    <div class="image-row">
+      <figure>
+        <img src="images/chatbot/exe執行圖1.png" alt="exe執行圖1">
+        <figcaption>exe執行圖1</figcaption>
+      </figure>
+   
+      <figure>
+        <img src="images/chatbot/exe執行圖2.png" alt="exe執行圖2">
+        <figcaption>exe執行圖2</figcaption>
+      </figure>
+    </div>
+ 
+  </section>
+ 
+</body>
+</html>
+ 

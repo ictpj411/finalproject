@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unity 製作說明</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .content-box {
+      max-width: 960px;
+      margin: 2em auto;
+      padding: 2em;
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #00ff9940;
+      line-height: 1.8;
+    }
+    .content-box h2 {
+      color: #00ff99;
+      margin-top: 1.8em;
+    }
+    .content-box p, .content-box ul {
+      text-align: justify;
+    }
+    .content-box img {
+      max-width: 100%;
+      margin: 1em 0;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00ff9940;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">目的與動機</a></li>
+        <li><a href="method.html">研究方法</a></li>
+        <li><a href="game.html">遊戲介紹</a></li>
+        <li><a href="chatbot.html">聊天機器人</a></li>
+        <li><a href="vision.html">影像辨識</a></li>
+        <li><a href="unity.html">Unity 製作說明</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Unity 製作說明</h1>
+  </section>
+
+  <section class="content-box">
+    <h2>開發流程簡介</h2>
+    <p>
+      本遊戲由 Unity 引擎打造，採用 2D 與 3D 混合製作，並結合聊天機器人與影像辨識系統，實現互動性與沉浸感兼具的遊戲體驗。
+      團隊透過整合 Python 影像模型與 Unity C# 腳本，讓玩家的操作能即時反映在遊戲任務中。
+    </p>
+    <img src="images/unity/暫時.png" alt="開發流程示意圖">
+
+    <h2>使用工具與插件</h2>
+    <ul>
+      <li>Unity 2022 LTS</li>
+      <li>Standalone File Browser（圖片檔案選取）</li>
+      <li>VRoid Studio（角色建模）</li>
+      <li>Mixamo（動畫綁定與動作捕捉）</li>
+      <li>PixAI、Suno（圖像與音樂）</li>
+    </ul>
+    <img src="images/unity/暫時.png" alt="使用工具與插件展示">
+
+    <h2>技術整合流程</h2>
+    <p>
+      遊戲技術整合主要分為三個部分：Python 模型訓練、Unity 呼叫 Python、互動設計與部署整合。
+    </p>
+    <ul>
+      <li><strong>Python 模型訓練：</strong> 使用 Tensorflow 訓練影像分類模型，將模型匯出為 .h5 檔案供遊戲讀取。</li>
+      <li><strong>Unity 呼叫 Python：</strong> Unity 透過 Process 呼叫 Python 執行檔，並讀取辨識結果。</li>
+      <li><strong>互動設計與整合：</strong> 玩家拍攝或選取圖片後，遊戲自動判斷並回饋結果。最終使用 PyInstaller 打包 Python 模組成 .exe 方便部署。</li>
+    </ul>
+    <img src="images/unity/暫時.png" alt="技術整合流程圖">
+
+    <h2>系統設計亮點</h2>
+    <p>
+      <strong>血條管理：</strong> 透過 Singleton 模式搭配 <code>DontDestroyOnLoad</code>，在場景切換時保持玩家血量狀態，確保遊戲體驗連貫。
+    </p>
+    <p>
+      <strong>圖片選取功能：</strong> 使用 SFB 套件實現 Windows 平台開啟檔案總管，只允許選擇 .jpg 圖片進行辨識，避免格式錯誤造成遊戲中斷。
+    </p>
+    <img src="images/unity/暫時.png" alt="系統設計亮點展示圖">
+
+    <h2>Unity 編輯器展示</h2>
+    <p>
+      以下是我們在 Unity 編輯器中設計遊戲場景與腳本的工作畫面，包含角色控制、事件觸發設定，以及 UI 元素布局。
+    </p>
+    <img src="images/unity/暫時.png" alt="Unity 編輯器畫面">
+  </section>
+
+</body>
+</html>

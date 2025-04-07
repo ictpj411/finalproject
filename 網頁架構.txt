@@ -1,0 +1,11 @@
+/專題網站資料夾
+├── index.html              ← 頁面 1：目的與動機
+├── method.html             ← 頁面 2：研究方法與步驟
+├── game.html               ← 頁面 3：遊戲介紹
+├── chatbot.html            ← 頁面 4：聊天機器人
+├── vision.html             ← 頁面 5：影像辨識
+├── style.css               ← 共用 CSS（可選）
+├── /images                 ← 放圖用資料夾，例如 motivation.jpg 等
+│   ├── motivation.jpg
+│   └── ...
+└── /js（可選）             ← 若有獨立 JavaScript

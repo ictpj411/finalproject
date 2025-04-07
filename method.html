@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>研究方法與步驟</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .method-section {
+      max-width: 960px;
+      margin: 2em auto;
+      padding: 2em;
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #00ff9940;
+      line-height: 1.8;
+    }
+    .method-section h2 {
+      color: #00ff99;
+      margin-top: 1.8em;
+    }
+    .method-section p, .method-section ul {
+      text-align: justify;
+    }
+    .method-section img {
+      max-width: 100%;
+      margin: 1em 0;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00ff9940;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">目的與動機</a></li>
+        <li><a href="method.html">研究方法</a></li>
+        <li><a href="game.html">遊戲介紹</a></li>
+        <li><a href="chatbot.html">聊天機器人</a></li>
+        <li><a href="vision.html">影像辨識</a></li>
+        <li><a href="unity.html">Unity 製作說明</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>研究方法與步驟</h1>
+  </section>
+
+  <section class="method-section">
+    <h2>研究架構</h2>
+    <p>
+      本專題整合「聊天機器人」與「影像辨識系統」於 Unity 遊戲中，透過 Python 開發對應模型，並以 C# 負責遊戲邏輯控制與畫面互動，達成跨平台技術整合。
+    </p>
+    <img src="images/method/暫時.png" alt="研究架構示意圖">
+
+    <h2>聊天機器人流程</h2>
+    <p>
+      聊天機器人部分，我們採用 Naive Bayes 模型，對語料數據進行預處理（斷詞、去除停用詞、向量化），並以 90% 訓練集、10% 測試集進行建模。
+      為提升對話真實感，當模型無法理解玩家輸入時，設計預設回應以避免冷場。
+    </p>
+    <img src="images/method/暫時.png" alt="聊天機器人流程圖">
+
+    <h2>影像辨識流程</h2>
+    <p>
+      影像辨識系統使用 ResNet-18 深度學習模型，資料集涵蓋多場景、多時段與不同天氣條件，提升模型泛化能力。影像預處理包含尺寸壓縮 (80x80)、格式統一，並設置 50 個訓練週期。
+    </p>
+    <p>
+      模型訓練完成後，我們將結果整合到遊戲流程中，玩家透過上傳現場拍攝的圖片，完成任務挑戰並推進劇情。
+    </p>
+    <img src="images/method/暫時.png" alt="影像辨識流程圖">
+
+    <h2>整體研究步驟</h2>
+    <ul>
+      <li>🔍 確定專題方向與技術需求</li>
+      <li>🧩 資料收集與預處理（圖片 + 對話數據）</li>
+      <li>🛠️ 模型訓練與測試（聊天機器人 + 影像辨識）</li>
+      <li>🖥️ 遊戲開發與技術整合</li>
+      <li>🧪 測試與優化（改善辨識率與對話流暢性）</li>
+      <li>🚀 部署與發表展示</li>
+    </ul>
+  </section>
+
+</body>
+</html>
+
